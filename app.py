@@ -18,6 +18,37 @@ def excluir_produto(produto_id):
 
     return redirect(url_for('estoque'))
 
+@app.route('/cadastro')
+def cadastrar():
+    return render_template('form.html')
+
+@app.route('/save')
+def save():
+    global produtos
+    id = len(produtos) + 1
+    nome = request.args.get('nome')
+    quant = int(request.args.get('quant'))
+    produto = {'id': id, 'nome': nome, 'quantidade': quant}
+    produtos.append(produto)
+
+    return redirect(url_for('estoque'))
+
+@app.route('/baixa/<int:produto_id>')
+def baixa(produto_id):
+    return render_template('baixa.html', id = produto_id)
+
+@app.route('/novo_estoque')
+def novo_estoque():
+    global produtos
+    id = int(request.args.get('id'))
+    dim = int(request.args.get('venda'))
+    for produto in produtos:
+        if produto['id'] == id:
+            produto['quantidade'] -= dim
+            break
+    return redirect(url_for('estoque'))
+
+
 
 if __name__== '__main__':
     app.run(debug=True)

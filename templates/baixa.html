@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Produto</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='form.css') }}?v=1">
+</head>
+<body>
+    <main>
+        <h1>Registrar Baixa</h1>
+        <p>Quantos produtos foram vendidos?</p>
+        <form action="{{ url_for('novo_estoque') }}" method="GET">
+            <input type="hidden" name="id" value="{{ id }}">
+            <div class="campo">
+                <input type="number" id="venda" name="venda" required>
+            </div>
+            <button type="submit">Registrar</button>
+        </form>
+    </main>
+</body>
+</html>
