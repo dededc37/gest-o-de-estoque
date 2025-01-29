@@ -16,6 +16,7 @@
                 <p>{{ produto.quantidade }}</p>
                 <a href="{{ url_for('excluir_produto', produto_id=produto.id) }}" id="excluir">Excluir</a>
                 <a href="{{ url_for('baixa', produto_id=produto.id) }}" id="baixa">Baixa</a>
+                <a href="{{ url_for('add', produto_id=produto.id) }}" id="add">+</a>
             </div>
         {% endfor %}
     </main>

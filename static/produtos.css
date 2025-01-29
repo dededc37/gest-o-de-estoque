@@ -31,7 +31,7 @@ main > h1 {
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.644);
 }
 
-main > p {
+main  p {
     font-size: 2em;
 }
 
@@ -94,6 +94,14 @@ main > div > a#baixa {
 
 main > div > a#baixa:hover {
     background-color: #0595b6;
+}
+
+main > div > a#add {
+    background-color: green;
+}
+
+main > div > a#add:hover {
+    background-color: darkgreen;
 }
 
 main > div > a:hover {

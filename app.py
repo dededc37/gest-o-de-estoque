@@ -37,14 +37,29 @@ def save():
 def baixa(produto_id):
     return render_template('baixa.html', id = produto_id)
 
-@app.route('/novo_estoque')
-def novo_estoque():
+@app.route('/baixa_estoque')
+def baixa_estoque():
     global produtos
     id = int(request.args.get('id'))
     dim = int(request.args.get('venda'))
     for produto in produtos:
         if produto['id'] == id:
             produto['quantidade'] -= dim
+            break
+    return redirect(url_for('estoque'))
+
+@app.route('/add/<int:produto_id>')
+def add(produto_id):
+    return render_template('add.html', id = produto_id)
+
+@app.route('/add_estoque')
+def add_estoque():
+    global produtos
+    id = int(request.args.get('id'))
+    add = int(request.args.get('add'))
+    for produto in produtos:
+        if produto['id'] == id:
+            produto['quantidade'] += add
             break
     return redirect(url_for('estoque'))
 
