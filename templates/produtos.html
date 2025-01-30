@@ -12,8 +12,8 @@
         <a href="/cadastro">+</a>
         {% for produto in produtos %}
             <div class="produto">
-                <h3>{{ produto.nome }}</h3>
-                <p>{{ produto.quantidade }}</p>
+                <h3>{{ produto.nome }}: Est:</h3>
+                <h3>{{ produto.quantidade }}</h3>
                 <a href="{{ url_for('excluir_produto', produto_id=produto.id) }}" id="excluir">Excluir</a>
                 <a href="{{ url_for('baixa', produto_id=produto.id) }}" id="baixa">Baixa</a>
                 <a href="{{ url_for('add', produto_id=produto.id) }}" id="add">+</a>
