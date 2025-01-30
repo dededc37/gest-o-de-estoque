@@ -1,7 +1,6 @@
 import json
 import os
 from flask import *
-import webview
 from produtos import produtos
 
 app = Flask(__name__)
